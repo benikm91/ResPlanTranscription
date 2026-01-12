@@ -1,0 +1,11 @@
+kagglehub
+numpy
+opencv-python
+geopandas
+matplotlib
+networkx
+shapely
+torch
+torchmetrics
+tqdm
+hydra-core

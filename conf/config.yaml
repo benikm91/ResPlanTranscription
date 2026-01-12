@@ -1,0 +1,33 @@
+training:
+  num_epochs: 100
+  batch_size: 128
+  lr: 1e-4
+  padding_value: -1
+  pad_to: 64
+
+data:
+  path: "ResPlan.pkl"
+  renderer_dpi: 32
+  graph_linearization: "random"  # options: "random", "sorted"
+
+model:
+  num_layers: 3
+  num_edges_classes: 2
+  vit:
+    img_size: 256
+    patch_size: 16
+    in_chans: 3
+    embed_dim: 512
+  transformer:
+    d_model: 512
+    nhead: 8
+    dim_feedforward: 2048
+    dropout: 0.1
+    activation: 'relu'
+
+hydra:
+  run:
+    dir: /cluster/home/${oc.env:USER}/.logs/slurm/${oc.env:SLURM_JOB_ID}/hydra-output
+  job_logging:
+    root:
+      level: INFO
